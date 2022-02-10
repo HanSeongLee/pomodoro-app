@@ -1,0 +1,11 @@
+@import "styles/utils.scss";
+
+.container {
+    padding: 0 24px;
+
+    @include media(">tablet") {
+        padding: 0;
+        max-width: 540px;
+        margin: auto;
+    }
+}
