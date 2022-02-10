@@ -1,0 +1,59 @@
+
+.multiSwitch {
+  position: relative;
+  background: #161932;
+  border-radius: 31.5px;
+  text-align: center;
+  padding: 8px 6px 7px;
+  overflow: hidden;
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+
+    li {
+      position: relative;
+      flex: 1;
+      display: flex;
+
+      button {
+        flex: 1;
+        font-weight: bold;
+        font-size: 12px;
+        line-height: 15px;
+        color: rgba(215, 224, 255, 0.4);
+        background: transparent;
+        border: none;
+        padding: 18px 0;
+        cursor: pointer;
+        z-index: 1;
+        transition: color 0.3s;
+
+        &.active {
+          color: #1E213F;
+        }
+      }
+    }
+  }
+
+  &::after {
+    position: absolute;
+    top: 8px;
+    left: 6px;
+    width: calc(100% / 3 - 6px);
+    height: calc(100% - 16px);
+    background: #F87070;
+    content: "";
+    border-radius: 26.5px;
+    transform: translateX(calc(100% * var(--selected) + 3px * var(--selected)));
+    transition: transform 0.5s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 15px;
+    color: #1E213F;
+  }
+}
