@@ -1,0 +1,22 @@
+
+.header {
+  padding-top: 32px;
+
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .logo {
+      width: 117px;
+
+      a {
+        display: flex;
+
+        img {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
