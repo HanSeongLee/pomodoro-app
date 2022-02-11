@@ -1,0 +1,80 @@
+.timer {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  background: linear-gradient(315deg, #2E325A 0%, #0E112A 100%);
+  box-shadow: -50px -50px 100px #272C5A, 50px 50px 100px #121530;
+  border-radius: 50%;
+  font-weight: bold;
+  color: #D7E0FF;
+  cursor: pointer;
+
+  &::before {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    width: 269px;
+    height: 269px;
+    background: #161932;
+    border-radius: 50%;
+    content: "";
+    z-index: 0;
+  }
+
+  &::after {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    width: 269px;
+    height: 269px;
+    background: #161932;
+    border-radius: 50%;
+    content: "";
+    z-index: 0;
+  }
+
+  > div {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+  }
+
+  .time {
+    font-size: 80px;
+    line-height: 99px;
+    text-align: center;
+    letter-spacing: -4px;
+  }
+
+  .pause {
+    font-size: 14px;
+    line-height: 17px;
+    letter-spacing: 13px;
+    margin-right: -13px;
+  }
+
+  .progressbarContainer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+
+    .circleProgress {
+      transform: rotate(-90deg);
+    }
+
+    .bar {
+      fill: none;
+    }
+
+    .bar {
+      stroke: #F87070;
+      stroke-linecap: round;
+    }
+  }
+}
