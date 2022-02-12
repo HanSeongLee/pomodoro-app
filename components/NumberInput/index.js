@@ -3,16 +3,14 @@ import styles from './style.module.scss';
 import ArrowUpIcon from '/public/icons/icon-arrow-up.svg';
 import ArrowDownIcon from '/public/icons/icon-arrow-down.svg';
 
-const NumberInput = ({ defaultValue=0, min, max, ...props }) => {
-    const [value, setValue] = useState(defaultValue);
-
+const NumberInput = ({ value, onChange, min, max, ...props }) => {
     const onUp = useCallback(() => {
         let newValue = value + 1;
         if (max && newValue >= max) {
             newValue = max;
         }
 
-        setValue(newValue);
+        onChange(newValue);
     }, [value]);
 
     const onDown = useCallback(() => {
@@ -21,12 +19,8 @@ const NumberInput = ({ defaultValue=0, min, max, ...props }) => {
             newValue = min;
         }
 
-        setValue(newValue);
+        onChange(newValue);
     }, [value]);
-
-    useEffect(() => {
-        setValue(defaultValue);
-    }, []);
 
     return (
         <div className={styles.numberInput}>
