@@ -1,11 +1,11 @@
-import React, {useMemo} from "react";
+import React, {useCallback, useEffect, useMemo, useState} from "react";
 import styles from './style.module.scss';
 import {useAppContext} from "../../context/AppContext";
 
 const RADIUS = 54;
 const CIRCUMFERENCE = 2 * Math.PI * RADIUS;
 
-const Timer = ({ onClick, progress=100 }) => {
+const Timer = ({ progress=100 }) => {
     const [state, dispatch] = useAppContext();
 
     const dashoffset = useMemo(() => {
@@ -18,6 +18,39 @@ const Timer = ({ onClick, progress=100 }) => {
         return `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
     };
 
+    const onClick = useCallback(() => {
+        if (state.start && state.time === 0) {
+            dispatch({
+                type: 'timer_restart',
+            });
+        } else if (state.start) {
+            dispatch({
+                type: 'timer_pause',
+            });
+        } else {
+            dispatch({
+                type: 'timer_start',
+            });
+        }
+    }, [state, dispatch]);
+
+    useEffect(() => {
+        if (!state.start || state.time === 0) {
+            return ;
+        }
+        const interval = setInterval(() => {
+            dispatch({
+                type: 'tick',
+            });
+        }, 1000);
+        return _ => {
+            if(!interval){
+                return;
+            }
+            clearInterval(interval);
+        }
+    }, [state]);
+
     return (
         <div className={styles.timer}
              onClick={onClick}
@@ -27,7 +60,8 @@ const Timer = ({ onClick, progress=100 }) => {
                     {toMMSS(state.time)}
                 </div>
                 <p className={styles.pause}>
-                    PAUSE
+                    {state.start && state.time > 0 ? 'PAUSE' :
+                        state.start ? 'RESTART' : 'START'}
                 </p>
             </div>
             <div className={styles.progressbarContainer}>

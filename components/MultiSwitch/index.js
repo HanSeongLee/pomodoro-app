@@ -14,6 +14,11 @@ const MultiSwitch = ({ options }) => {
     const onClick = useCallback((newValue) => {
         setValue(newValue);
 
+        dispatch({
+            type: 'set_mode',
+            value: newValue.label
+        });
+
         if (state.settings.time[newValue.label]) {
             dispatch({
                 type: 'set_time',
