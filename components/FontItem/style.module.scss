@@ -1,0 +1,20 @@
+
+.fontItem {
+  font-weight: bold;
+  font-size: 15px;
+  line-height: 19px;
+  color: rgba(30, 33, 63, 0.73);
+  background: #EFF1FA;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+
+  &.active {
+    color: #FFFFFF;
+    background: #161932;
+  }
+}
