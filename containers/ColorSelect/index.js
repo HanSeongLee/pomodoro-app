@@ -1,17 +1,7 @@
-import React, {useCallback, useEffect, useState} from 'react';
+import React from 'react';
 import ColorItem from "../../components/ColorItem";
 
-const ColorSelect = ({ name, colors=['red'], defaultValue=colors[0], ...props }) => {
-    const [value, setValue] = useState(defaultValue);
-
-    const onChange = useCallback((value) => {
-        setValue(value)
-    }, []);
-
-    useEffect(() => {
-        setValue(defaultValue);
-    }, []);
-
+const ColorSelect = ({ name, value, onChange, colors=['red'], ...props }) => {
     return (
         <>
             <ul {...props}>
