@@ -38,12 +38,14 @@ const NumberInput = ({ defaultValue=0, min, max, ...props }) => {
             />
             <div className={styles.buttonContainer}>
                 <button className={styles.button}
+                        type={'button'}
                         aria-label={'up'}
                         onClick={onUp}
                 >
                     <ArrowUpIcon/>
                 </button>
                 <button className={styles.button}
+                        type={'button'}
                         aria-label={'down'}
                         onClick={onDown}
                 >
