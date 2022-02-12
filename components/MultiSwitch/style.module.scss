@@ -43,7 +43,7 @@
     left: 6px;
     width: calc(100% / 3 - 6px);
     height: calc(100% - 16px);
-    background: #F87070;
+    background: var(--theme-color);
     content: "";
     border-radius: 26.5px;
     transform: translateX(calc(100% * var(--selected) + 3px * var(--selected)));

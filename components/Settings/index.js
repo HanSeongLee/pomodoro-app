@@ -37,6 +37,7 @@ const Settings = () => {
                 color,
             }
         });
+        setModalOpen(false);
     }, [dispatch]);
 
     return (

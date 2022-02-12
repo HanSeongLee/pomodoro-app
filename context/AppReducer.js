@@ -1,5 +1,6 @@
 export const initialState = {
     time: 25 * 60,
+    initialTime: 25 * 60,
     mode: 'pomodoro',
     settings: {
         time: {
@@ -33,6 +34,7 @@ export const AppReducer = (state, action) => {
             return {
                 ...state,
                 mode: action.value,
+                initialTime: state.settings.time[action.value] * 60,
                 start: false,
             };
         }
@@ -52,6 +54,7 @@ export const AppReducer = (state, action) => {
             return {
                 ...state,
                 time: state.settings.time[state.mode] * 60,
+                initialTime: state.settings.time[state.mode] * 60,
                 start: true,
             }
         }

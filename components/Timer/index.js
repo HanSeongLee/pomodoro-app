@@ -5,12 +5,12 @@ import {useAppContext} from "../../context/AppContext";
 const RADIUS = 54;
 const CIRCUMFERENCE = 2 * Math.PI * RADIUS;
 
-const Timer = ({ progress=100 }) => {
+const Timer = () => {
     const [state, dispatch] = useAppContext();
 
     const dashoffset = useMemo(() => {
-        return CIRCUMFERENCE * (1 - (progress / 100));
-    }, [progress]);
+        return CIRCUMFERENCE * (1 - ((state.time / state.initialTime) * 100) / 100);
+    }, [state]);
 
     const toMMSS = (_seconds) => {
         const minutes = Math.floor(_seconds / 60);

@@ -73,8 +73,9 @@
     }
 
     .bar {
-      stroke: #F87070;
+      stroke: var(--theme-color);
       stroke-linecap: round;
+      transition: stroke-dashoffset 0.3s;
     }
   }
 }
