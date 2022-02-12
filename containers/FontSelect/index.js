@@ -1,17 +1,7 @@
-import React, {useCallback, useEffect, useState} from 'react';
+import React from 'react';
 import FontItem from "../../components/FontItem";
 
-const FontSelect = ({ name, fontFamily=['sans-serif'], defaultValue=fontFamily[0], ...props }) => {
-    const [value, setValue] = useState(defaultValue);
-
-    useEffect(() => {
-        setValue(defaultValue);
-    }, []);
-
-    const onChange = useCallback((value) => {
-        setValue(value);
-    }, []);
-
+const FontSelect = ({ name, value, onChange, fontFamily=['sans-serif'], ...props }) => {
     return (
         <>
             <ul {...props}>
