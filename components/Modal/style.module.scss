@@ -1,0 +1,55 @@
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(10, 12, 28, 0.5);
+  z-index: 5;
+
+  .container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 6;
+
+    .modalBox {
+      position: relative;
+      width: 100%;
+      min-width: 327px;
+      background: #FFFFFF;
+      border-radius: 15px;
+
+      .header {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        padding: 24px 24px 28px;
+        border-bottom: 1px solid #E3E1E1;
+
+        .title {
+          font-weight: bold;
+          font-size: 20px;
+          line-height: 25px;
+          color: #161932;
+        }
+
+        .closeButton {
+          background: transparent;
+          border: 0;
+          cursor: pointer;
+        }
+      }
+
+      .body {
+        padding: 24px 23px 59px;
+      }
+    }
+  }
+}
