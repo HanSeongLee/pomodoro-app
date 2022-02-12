@@ -6,8 +6,10 @@ import NumberInput from "../NumberInput";
 import FontSelect from "../../containers/FontSelect";
 import ColorSelect from "../../containers/ColorSelect";
 import {useForm, Controller} from "react-hook-form";
+import {useAppContext} from "../../context/AppContext";
 
 const Settings = () => {
+    const [state, dispatch] = useAppContext();
     const [modalOpen, setModalOpen] = useState(false);
     const { handleSubmit, control } = useForm();
 
@@ -19,9 +21,23 @@ const Settings = () => {
         setModalOpen(false);
     }, []);
 
-    const onSubmit = useCallback((data) => {
-        console.log(data);
-    }, []);
+    const onSubmit = useCallback(({
+                                      pomodoro, shortBreak, longBreak, font,
+                                      color
+                                  }) => {
+        dispatch({
+            type: 'set_settings',
+            value: {
+                time: {
+                    pomodoro,
+                    'short break': shortBreak,
+                    'long break': longBreak,
+                },
+                font,
+                color,
+            }
+        });
+    }, [dispatch]);
 
     return (
         <div className={styles.settings}>
@@ -41,7 +57,7 @@ const Settings = () => {
                                 <div className={styles.inputFieldContainer}>
                                     <Controller name={'pomodoro'}
                                                 control={control}
-                                                defaultValue={25}
+                                                defaultValue={state.settings.time.pomodoro}
                                                 render={({field}) => (
                                                     <InputField name={'pomodoro'}
                                                                 label={'pomodoro'}
@@ -51,7 +67,7 @@ const Settings = () => {
                                     />
                                     <Controller name={'shortBreak'}
                                                 control={control}
-                                                defaultValue={5}
+                                                defaultValue={state.settings.time['short break']}
                                                 render={({field}) => (
                                                     <InputField name={'shortBreak'}
                                                                 label={'short break'}
@@ -61,7 +77,7 @@ const Settings = () => {
                                     />
                                     <Controller name={'longBreak'}
                                                 control={control}
-                                                defaultValue={15}
+                                                defaultValue={state.settings.time['long break']}
                                                 render={({field}) => (
                                                     <InputField name={'longBreak'}
                                                                 label={'long break'}
@@ -74,7 +90,7 @@ const Settings = () => {
                             <GroupBox title={'Font'}>
                                 <Controller name={'font'}
                                             control={control}
-                                            defaultValue={'Kumbh Sans'}
+                                            defaultValue={state.settings.font}
                                             render={({field}) => (
                                                 <FontSelect className={styles.select}
                                                             name={'font'}
@@ -87,7 +103,7 @@ const Settings = () => {
                             <GroupBox title={'Color'}>
                                 <Controller name={'color'}
                                             control={control}
-                                            defaultValue={'#F87070'}
+                                            defaultValue={state.settings.color}
                                             render={({field}) => (
                                                 <ColorSelect className={styles.select}
                                                              name={'color'}
