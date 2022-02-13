@@ -1,7 +1,20 @@
+@import "styles/utils";
+
 .multiSwitchContainer {
   position: relative;
   margin-top: 45px;
   z-index: 1;
+
+  @include media(">tablet") {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 55px;
+
+    > div {
+      flex: 1;
+    }
+  }
 }
 
 .timerContainer {
@@ -10,6 +23,10 @@
   align-items: center;
   justify-content: center;
   margin-top: 48px;
+
+  @include media(">tablet") {
+    margin-top: 109px;
+  }
 }
 
 .settingsContainer {
@@ -17,4 +34,8 @@
   align-items: center;
   justify-content: center;
   margin-top: 79px;
+
+  @include media(">tablet") {
+    margin-top: 144px;
+  }
 }
