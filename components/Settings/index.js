@@ -7,6 +7,7 @@ import FontSelect from "../../containers/FontSelect";
 import ColorSelect from "../../containers/ColorSelect";
 import {useForm, Controller} from "react-hook-form";
 import {useAppContext} from "../../context/AppContext";
+import cn from "classnames";
 
 const Settings = () => {
     const [state, dispatch] = useAppContext();
@@ -88,7 +89,9 @@ const Settings = () => {
                                     />
                                 </div>
                             </GroupBox>
-                            <GroupBox title={'Font'}>
+                            <GroupBox title={'Font'}
+                                      inline
+                            >
                                 <Controller name={'font'}
                                             control={control}
                                             defaultValue={state.settings.font}
@@ -101,7 +104,9 @@ const Settings = () => {
                                             )}
                                 />
                             </GroupBox>
-                            <GroupBox title={'Color'}>
+                            <GroupBox title={'Color'}
+                                      inline
+                            >
                                 <Controller name={'color'}
                                             control={control}
                                             defaultValue={state.settings.color}
@@ -140,9 +145,11 @@ const InputField = ({ label, ...props }) => {
     );
 };
 
-const GroupBox = ({ title, children }) => {
+const GroupBox = ({ title, inline, children }) => {
     return (
-        <div className={styles.groupWrapper}>
+        <div className={cn(styles.groupWrapper, {
+            [styles.inline]: inline,
+        })}>
             <div className={styles.groupTitle}>
                 {title}
             </div>

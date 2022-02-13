@@ -23,6 +23,18 @@
     padding: 24px 0;
     border-bottom: 1px solid #E3E1E1;
 
+    @include media(">tablet") {
+      &.inline {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .groupTitle {
+          margin-bottom: 3px;
+        }
+      }
+    }
+
     &:first-child {
       padding-top: 0;
     }
@@ -41,16 +53,35 @@
       letter-spacing: 4.2px;
       color: #161932;
       margin-bottom: 18px;
+
+      @include media(">tablet") {
+        font-size: 13px;
+        line-height: 16px;
+        letter-spacing: 5px;
+        text-align: left;
+        margin-bottom: 26px;
+      }
     }
 
     .inputFieldContainer {
       display: grid;
       grid-gap: 8px;
+
+      @include media(">tablet") {
+        display: flex;
+        grid-gap: 20px;
+      }
     }
 
     .inputFieldWrapper {
       display: flex;
       align-items: center;
+
+      @include media(">tablet") {
+        align-items: flex-start;
+        flex-direction: column;
+        grid-gap: 10px;
+      }
 
       label {
         flex: 1;
