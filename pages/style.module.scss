@@ -2,18 +2,18 @@
 
 .multiSwitchContainer {
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin-top: 45px;
   z-index: 1;
 
-  @include media(">tablet") {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 55px;
+  > div {
+    flex: 1;
+  }
 
-    > div {
-      flex: 1;
-    }
+  @include media(">tablet") {
+    margin-top: 55px;
   }
 }
 
