@@ -65,7 +65,7 @@ const Timer = () => {
                 </p>
             </div>
             <div className={styles.progressbarContainer}>
-                <svg className={styles.circleProgress} width="265" height="265" viewBox="0 0 120 120">
+                <svg className={styles.circleProgress} viewBox="0 0 120 120">
                     <circle className={styles.bar} cx="60" cy="60" r={RADIUS} strokeWidth="4"
                             strokeDasharray={CIRCUMFERENCE}
                             strokeDashoffset={dashoffset}
