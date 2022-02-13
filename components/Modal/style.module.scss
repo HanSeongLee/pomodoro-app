@@ -51,6 +51,18 @@
           background: transparent;
           border: 0;
           cursor: pointer;
+
+          @include media(">desktop") {
+            svg path {
+              transition: opacity 0.3s;
+            }
+
+            &:hover {
+              svg path {
+                opacity: 1;
+              }
+            }
+          }
         }
       }
 
