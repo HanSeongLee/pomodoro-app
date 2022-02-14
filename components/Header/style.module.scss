@@ -7,6 +7,10 @@
     padding-top: 80px;
   }
 
+  @include media(">desktop") {
+    padding-top: 48px;
+  }
+
   .container {
     display: flex;
     align-items: center;
