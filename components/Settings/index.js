@@ -61,7 +61,8 @@ const Settings = () => {
                                             control={control}
                                             defaultValue={state.settings.time.pomodoro}
                                             render={({field}) => (
-                                                <InputField name={'pomodoro'}
+                                                <InputField id={'pomodoro'}
+                                                            name={'pomodoro'}
                                                             label={'pomodoro'}
                                                             min={1}
                                                             max={999}
@@ -73,7 +74,8 @@ const Settings = () => {
                                             control={control}
                                             defaultValue={state.settings.time['short break']}
                                             render={({field}) => (
-                                                <InputField name={'shortBreak'}
+                                                <InputField id={'shortBreak'}
+                                                            name={'shortBreak'}
                                                             label={'short break'}
                                                             min={1}
                                                             max={999}
@@ -85,7 +87,8 @@ const Settings = () => {
                                             control={control}
                                             defaultValue={state.settings.time['long break']}
                                             render={({field}) => (
-                                                <InputField name={'longBreak'}
+                                                <InputField id={'longBreak'}
+                                                            name={'longBreak'}
                                                             label={'long break'}
                                                             min={1}
                                                             max={999}
@@ -137,10 +140,10 @@ const Settings = () => {
     );
 };
 
-const InputField = ({ label, ...props }) => {
+const InputField = ({ label, id, ...props }) => {
     return (
         <div className={styles.inputFieldWrapper}>
-            <label>
+            <label htmlFor={id}>
                 {label}
             </label>
             <div className={styles.numberInputWrapper}>
