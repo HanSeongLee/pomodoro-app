@@ -32,6 +32,11 @@
         z-index: 1;
         transition: color 0.3s;
 
+        @include media(">tablet") {
+          font-size: 14px;
+          line-height: 17px;
+        }
+
         @include media(">desktop") {
           transition: color 0.3s;
 
