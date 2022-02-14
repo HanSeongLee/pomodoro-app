@@ -16,6 +16,18 @@
     height: 410px;
   }
 
+  @include media(">desktop") {
+    .pause {
+      transition: color 0.3s;
+    }
+
+    &:hover {
+      .pause {
+        color: var(--theme-color);
+      }
+    }
+  }
+
   &::before {
     position: absolute;
     top: 16px;
