@@ -63,11 +63,13 @@
     line-height: 99px;
     text-align: center;
     letter-spacing: -4px;
+    margin-bottom: 12px;
 
     @include media(">tablet") {
       font-size: 100px;
       line-height: 124px;
       letter-spacing: -5px;
+      margin-bottom: 19px;
     }
   }
 
