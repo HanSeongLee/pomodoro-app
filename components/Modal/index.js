@@ -5,10 +5,10 @@ import CloseIcon from '/public/icons/icon-close.svg';
 
 const Modal = ({ title='', onClose, children }) => {
     return (
-        <div className={styles.modal}>
-            <Container className={styles.container}
-                       onClick={onClose}
-            >
+        <div className={styles.modal}
+             onClick={onClose}
+        >
+            <Container className={styles.container}>
                 <div className={styles.modalBox}
                      onClick={e => e.stopPropagation()}
                 >
