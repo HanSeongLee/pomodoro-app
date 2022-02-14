@@ -27,6 +27,10 @@
   @include media(">tablet") {
     margin-top: 109px;
   }
+
+  @include media(">desktop") {
+    margin-top: 45px;
+  }
 }
 
 .settingsContainer {
@@ -37,5 +41,9 @@
 
   @include media(">tablet") {
     margin-top: 144px;
+  }
+
+  @include media(">desktop") {
+    margin-top: 63px;
   }
 }
