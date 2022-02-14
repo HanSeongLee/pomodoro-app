@@ -49,91 +49,90 @@ const Settings = () => {
             >
                 <SettingsIcon/>
             </button>
-            {modalOpen && (
-                <Modal title={'Settings'}
-                       onClose={onClose}
-                >
-                    <form onSubmit={handleSubmit(onSubmit)}>
-                        <div>
-                            <GroupBox title={'Time (Minutes)'}>
-                                <div className={styles.inputFieldContainer}>
-                                    <Controller name={'pomodoro'}
-                                                control={control}
-                                                defaultValue={state.settings.time.pomodoro}
-                                                render={({field}) => (
-                                                    <InputField name={'pomodoro'}
-                                                                label={'pomodoro'}
-                                                                min={1}
-                                                                max={999}
-                                                                {...field}
-                                                    />
-                                                )}
-                                    />
-                                    <Controller name={'shortBreak'}
-                                                control={control}
-                                                defaultValue={state.settings.time['short break']}
-                                                render={({field}) => (
-                                                    <InputField name={'shortBreak'}
-                                                                label={'short break'}
-                                                                min={1}
-                                                                max={999}
-                                                                {...field}
-                                                    />
-                                                )}
-                                    />
-                                    <Controller name={'longBreak'}
-                                                control={control}
-                                                defaultValue={state.settings.time['long break']}
-                                                render={({field}) => (
-                                                    <InputField name={'longBreak'}
-                                                                label={'long break'}
-                                                                min={1}
-                                                                max={999}
-                                                                {...field}
-                                                    />
-                                                )}
-                                    />
-                                </div>
-                            </GroupBox>
-                            <GroupBox title={'Font'}
-                                      inline
-                            >
-                                <Controller name={'font'}
+            <Modal title={'Settings'}
+                   onClose={onClose}
+                   open={modalOpen}
+            >
+                <form onSubmit={handleSubmit(onSubmit)}>
+                    <div>
+                        <GroupBox title={'Time (Minutes)'}>
+                            <div className={styles.inputFieldContainer}>
+                                <Controller name={'pomodoro'}
                                             control={control}
-                                            defaultValue={state.settings.font}
+                                            defaultValue={state.settings.time.pomodoro}
                                             render={({field}) => (
-                                                <FontSelect className={styles.select}
-                                                            name={'font'}
-                                                            fontFamily={['Kumbh Sans', 'Roboto Slab', 'Space Mono']}
+                                                <InputField name={'pomodoro'}
+                                                            label={'pomodoro'}
+                                                            min={1}
+                                                            max={999}
                                                             {...field}
                                                 />
                                             )}
                                 />
-                            </GroupBox>
-                            <GroupBox title={'Color'}
-                                      inline
-                            >
-                                <Controller name={'color'}
+                                <Controller name={'shortBreak'}
                                             control={control}
-                                            defaultValue={state.settings.color}
+                                            defaultValue={state.settings.time['short break']}
                                             render={({field}) => (
-                                                <ColorSelect className={styles.select}
-                                                             name={'color'}
-                                                             colors={['#F87070', '#70F3F8', '#D881F8']}
-                                                             {...field}
+                                                <InputField name={'shortBreak'}
+                                                            label={'short break'}
+                                                            min={1}
+                                                            max={999}
+                                                            {...field}
                                                 />
                                             )}
                                 />
-                            </GroupBox>
-                        </div>
-                        <button className={styles.applyButton}
-                                type={'submit'}
+                                <Controller name={'longBreak'}
+                                            control={control}
+                                            defaultValue={state.settings.time['long break']}
+                                            render={({field}) => (
+                                                <InputField name={'longBreak'}
+                                                            label={'long break'}
+                                                            min={1}
+                                                            max={999}
+                                                            {...field}
+                                                />
+                                            )}
+                                />
+                            </div>
+                        </GroupBox>
+                        <GroupBox title={'Font'}
+                                  inline
                         >
-                            Apply
-                        </button>
-                    </form>
-                </Modal>
-            )}
+                            <Controller name={'font'}
+                                        control={control}
+                                        defaultValue={state.settings.font}
+                                        render={({field}) => (
+                                            <FontSelect className={styles.select}
+                                                        name={'font'}
+                                                        fontFamily={['Kumbh Sans', 'Roboto Slab', 'Space Mono']}
+                                                        {...field}
+                                            />
+                                        )}
+                            />
+                        </GroupBox>
+                        <GroupBox title={'Color'}
+                                  inline
+                        >
+                            <Controller name={'color'}
+                                        control={control}
+                                        defaultValue={state.settings.color}
+                                        render={({field}) => (
+                                            <ColorSelect className={styles.select}
+                                                         name={'color'}
+                                                         colors={['#F87070', '#70F3F8', '#D881F8']}
+                                                         {...field}
+                                            />
+                                        )}
+                            />
+                        </GroupBox>
+                    </div>
+                    <button className={styles.applyButton}
+                            type={'submit'}
+                    >
+                        Apply
+                    </button>
+                </form>
+            </Modal>
         </div>
     );
 };

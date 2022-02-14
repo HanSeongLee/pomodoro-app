@@ -2,10 +2,14 @@ import React from 'react';
 import styles from './style.module.scss';
 import Container from "../Container";
 import CloseIcon from '/public/icons/icon-close.svg';
+import cn from "classnames";
 
-const Modal = ({ title='', onClose, children }) => {
+const Modal = ({ title='', open, onClose, children }) => {
     return (
-        <div className={styles.modal}
+        <div className={cn(styles.modal, {
+            [styles.open]: open,
+            [styles.close]: !open,
+        })}
              onClick={onClose}
         >
             <Container className={styles.container}>

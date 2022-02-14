@@ -8,6 +8,49 @@
   height: 100%;
   background: rgba(10, 12, 28, 0.5);
   z-index: 5;
+  transform: scale(0);
+
+  @keyframes open {
+    0% {
+      opacity: 0;
+    }
+
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes close {
+    0% {
+      opacity: 1;
+    }
+
+    99% {
+      opacity: 0;
+      transform: scale(1);
+    }
+    100% {
+      transform: scale(0);
+    }
+  }
+
+  &.open {
+    animation-name: open;
+    animation-duration: 0.8s;
+    animation-fill-mode: both;
+    transform: scale(1);
+
+    .container .modalBox {
+      transform: scale(1);
+    }
+  }
+
+  &.close {
+    animation-name: close;
+    animation-duration: 0.8s;
+    animation-fill-mode: both;
+    transform: scale(1);
+  }
 
   .container {
     width: 100%;
@@ -23,6 +66,8 @@
       min-width: 327px;
       background: #FFFFFF;
       border-radius: 15px;
+      transition: transform 0.6s;
+      transform: scale(0);
 
       .header {
         display: flex;
