@@ -1,3 +1,5 @@
+@import "styles/utils";
+
 .multiSwitch {
   position: relative;
   background: #161932;
@@ -29,6 +31,14 @@
         cursor: pointer;
         z-index: 1;
         transition: color 0.3s;
+
+        @include media(">desktop") {
+          transition: color 0.3s;
+
+          &:hover {
+            color: #D7E0FF;
+          }
+        }
 
         &.active {
           color: #1E213F;
