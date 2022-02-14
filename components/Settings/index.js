@@ -63,6 +63,8 @@ const Settings = () => {
                                                 render={({field}) => (
                                                     <InputField name={'pomodoro'}
                                                                 label={'pomodoro'}
+                                                                min={1}
+                                                                max={999}
                                                                 {...field}
                                                     />
                                                 )}
@@ -73,6 +75,8 @@ const Settings = () => {
                                                 render={({field}) => (
                                                     <InputField name={'shortBreak'}
                                                                 label={'short break'}
+                                                                min={1}
+                                                                max={999}
                                                                 {...field}
                                                     />
                                                 )}
@@ -83,6 +87,8 @@ const Settings = () => {
                                                 render={({field}) => (
                                                     <InputField name={'longBreak'}
                                                                 label={'long break'}
+                                                                min={1}
+                                                                max={999}
                                                                 {...field}
                                                     />
                                                 )}
