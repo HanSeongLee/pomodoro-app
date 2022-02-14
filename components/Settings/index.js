@@ -147,7 +147,9 @@ const InputField = ({ label, id, ...props }) => {
                 {label}
             </label>
             <div className={styles.numberInputWrapper}>
-                <NumberInput {...props} />
+                <NumberInput id={id}
+                             {...props}
+                />
             </div>
         </div>
     );
